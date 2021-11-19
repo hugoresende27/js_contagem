@@ -62,6 +62,7 @@ h4{
     left: 50%;
     /*fixed 50 50 para ficar centrado na tela*/
     transform: translate(-50%, -50%) scale(0);
+    text-align: center;
 }
 
 .final.show{/*CLASSE show adicionada com js*/

@@ -15,8 +15,8 @@ function runAnimacao() {
             if (event.animationName === 'goIn' && index !== nextToLast) //se a animation em css tem o nome goIn e se não for o último index
             {
                 item.classList.remove('in')//remove classe in e adiciona out
-                item.classList.add('out')
-            } else if (event.animationName === 'goOut' && item.nextElementSibiling){//nextElementSibiling verifica se existe elementos imrãos, neste caso existem vários spans, enquanto existirem spans e css tiver a animação goOut
+                item.classList.add('out')                     
+            } else if (event.animationName === 'goOut' && item.nextElementSibling){//nextElementSibiling verifica se existe elementos imrãos, neste caso existem vários spans, enquanto existirem spans e css tiver a animação goOut
                 item.nextElementSibling.classList.add('in')//adiciona classe in ao próximo span
 
             } else {//último else, quando terminou a contagem, os spans
@@ -26,3 +26,20 @@ function runAnimacao() {
         })
     })
 }
+
+
+function resetDOM () {
+    contador.classList.remove('escondido')
+    msgFinal.classList.remove('show')
+
+    numeros.forEach ( (n) => {
+        n.classList.value =''
+    })
+
+    numeros[0].classList.add('in')//vai por o span [0] com classe in
+}
+
+replay.addEventListener('click', () => {
+    resetDOM()
+    runAnimacao()
+})
